@@ -1,0 +1,399 @@
+/* ==========================================
+   1. RESETS Y CONFIGURACIÓN GENERAL
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f7f9fc;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* ==========================================
+   2. ENCABEZADO (HEADER & LOGO)
+   ========================================== */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Imagen PNG de la Pokébola como Logo */
+.pokeball-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #3b4cca;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: #666666;
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+
+/* Botones de acción/filtro */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.1s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+    filter: brightness(0.95);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-blue {
+    background-color: #1a73e8;
+}
+
+.btn-green {
+    background-color: #1e8e3e;
+}
+
+/* ==========================================
+   3. GRILLA FLEXIBLE DE POKÉMON (RESPONSIVE)
+   ========================================== */
+.pokedex-grid {
+    display: grid;
+    /* Crea columnas de al menos 300px y las acomoda en filas hacia abajo */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* ==========================================
+   4. TARJETA DE POKÉMON (CARD)
+   ========================================== */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Badge ID (#1, #25, etc.) */
+.badge-id {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #555555;
+    color: #ffffff;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Contenedor de la Imagen */
+.card-img-container {
+    background: linear-gradient(180deg, #eef2f7 0%, #dbe3ed 100%);
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-container img {
+    max-height: 140px;
+    max-width: 140px;
+    object-fit: contain;
+}
+
+/* Cuerpo de la Tarjeta */
+.card-body {
+    padding: 20px 18px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pokemon-name {
+    font-size: 1.25rem;
+    color: #2b2b2b;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Badges de Tipos */
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    min-height: 24px;
+}
+
+.type-badge {
+    padding: 3px 14px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Paleta de Colores por Tipo */
+.planta {
+    background-color: #78c850;
+}
+
+.veneno {
+    background-color: #a040a0;
+}
+
+.fuego {
+    background-color: #f08030;
+}
+
+.agua {
+    background-color: #f068c7;
+}
+
+.eléctrico,
+.electrico {
+    background-color: #f8d030;
+    color: #333333;
+}
+
+.normal {
+    background-color: #a8a878;
+}
+
+.hada {
+    background-color: #ee99ac;
+}
+
+.fantasma {
+    background-color: #705898;
+}
+
+.roca {
+    background-color: #b8a038;
+}
+
+.tierra {
+    background-color: #e0c068;
+    color: #333333;
+}
+
+/* Barra de Stat (Poder) */
+.stat-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666666;
+    margin-bottom: 5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background-color: #e9ecef;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #3b4cca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    min-width: 24px;
+    transition: width 0.4s ease;
+}
+
+.progress-text {
+    font-size: 0.65rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Métricas (Altura y Peso) */
+.metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 18px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 12px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: #888888;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.metric-value {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Botón Ver Detalles */
+.btn-details {
+    width: 100%;
+    padding: 8px 0;
+    background-color: transparent;
+    border: 1px solid #b8c8f0;
+    color: #3b4cca;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: auto;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-details:hover {
+    background-color: #f0f4ff;
+    border-color: #3b4cca;
+}
+
+/* ==========================================
+   5. PÁGINA DE ERROR (404.HTML)
+   ========================================== */
+.error-body {
+    background-color: #f7f9fc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.error-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+}
+
+.error-title {
+    font-size: 2.8rem;
+    color: #3b4cca;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.error-message {
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.error-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #e63946;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.error-subtext {
+    color: #777777;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    padding: 0 10px;
+}
+
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #1a73e8;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-home:hover {
+    background-color: #1557b0;
+}
