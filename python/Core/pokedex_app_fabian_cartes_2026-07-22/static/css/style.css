@@ -1,6 +1,3 @@
-/* ==========================================
-   1. RESETS Y CONFIGURACIÓN GENERAL
-   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -22,9 +19,6 @@ body {
     max-width: 1100px;
 }
 
-/* ==========================================
-   2. ENCABEZADO (HEADER & LOGO)
-   ========================================== */
 .header {
     text-align: center;
     margin-bottom: 30px;
@@ -37,7 +31,6 @@ body {
     gap: 12px;
 }
 
-/* Imagen PNG de la Pokébola como Logo */
 .pokeball-logo {
     width: 42px;
     height: 42px;
@@ -57,7 +50,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* Botones de acción/filtro */
 .actions {
     display: flex;
     justify-content: center;
@@ -96,19 +88,12 @@ body {
     background-color: #1e8e3e;
 }
 
-/* ==========================================
-   3. GRILLA FLEXIBLE DE POKÉMON (RESPONSIVE)
-   ========================================== */
 .pokedex-grid {
     display: grid;
-    /* Crea columnas de al menos 300px y las acomoda en filas hacia abajo */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
 }
 
-/* ==========================================
-   4. TARJETA DE POKÉMON (CARD)
-   ========================================== */
 .card {
     background: #ffffff;
     border-radius: 12px;

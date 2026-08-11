@@ -5,26 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex - {{ pokedex|length }} Pokémon</title>
-    <!-- Iconos FontAwesome (para los botones y métricas) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Tu archivo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
     <main class="container">
-        <!-- Encabezado -->
         <header class="header">
             <div class="title-container">
-                <!-- *** CAMBIO AQUÍ: Imagen de Pokébola en lugar del icono *** -->
                 <img src="{{ url_for('static', filename='img/pokebola.png') }}" alt="Logo Pokébola"
                     class="pokeball-logo">
                 <h1>Pokédex</h1>
             </div>
             <p class="subtitle">Todos los Pokémon</p>
 
-            <!-- Botones de filtro (Usando tus rutas de app.py) -->
             <div class="actions">
                 <a href="{{ url_for('mostrar_todos_pokemon') }}" class="btn btn-blue">
                     <i class="fa-solid fa-list-check"></i> Ver todos
@@ -35,7 +30,6 @@
             </div>
         </header>
 
-        <!-- Grilla Flexible -->
         <section class="pokedex-grid">
             {% for pokemon in pokedex %}
             <article class="card">
@@ -48,7 +42,6 @@
                 <div class="card-body">
                     <h2 class="pokemon-name">{{ pokemon.nombre }}</h2>
 
-                    <!-- *** CAMBIO AQUÍ: Manejo del tipo como cadena "Planta/Veneno" *** -->
                     <div class="types">
                         {% if '/' in pokemon.tipo %}
                         {# Si tiene dos tipos, los separamos #}
@@ -61,7 +54,6 @@
                         {% endif %}
                     </div>
 
-                    <!-- Barra de Poder (calculada sobre un máximo de 160) -->
                     <div class="stat-group">
                         <div class="stat-label">
                             <span><i class="fa-solid fa-bolt"></i> Poder</span>
@@ -73,7 +65,6 @@
                         </div>
                     </div>
 
-                    <!-- Métricas (Usando tus variables exactas: altura, peso) -->
                     <div class="metrics">
                         <div class="metric-item">
                             <span class="metric-label"><i class="fa-solid fa-ruler-vertical"></i> Altura</span>
@@ -85,7 +76,6 @@
                         </div>
                     </div>
 
-                    <!-- Enlace a la ruta de detalle por nombre -->
                     <a href="{{ url_for('mostrar_pokemon_por_nombre', nombre=pokemon.nombre) }}" class="btn-details">
                         Ver detalles
                     </a>
