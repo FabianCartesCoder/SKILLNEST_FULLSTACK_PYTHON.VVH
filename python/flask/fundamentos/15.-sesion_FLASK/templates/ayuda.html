@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Ayuda - Conceptos Web</title>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    </nav>
+    <hr>
+
+    <h1>Conceptos Clave del Patrón PRG</h1>
+
+    <ul>
+        <li>
+            <strong>POST:</strong> Es un método HTTP diseñado para enviar datos sensibles o de modificación al servidor en el cuerpo de la petición.
+        </li>
+        <li>
+            <strong>GET:</strong> Es un método HTTP utilizado para solicitar y obtener información sin modificar nada en el servidor.
+        </li>
+        <li>
+            <strong>redirect():</strong> Le ordena al navegador del usuario que realice automáticamente una nueva petición a otra URL.
+        </li>
+        <li>
+            <strong>¿Por qué request.form está vacío tras un redirect?:</strong> Porque la redirección genera una nueva petición (GET) completamente independiente de la petición previa (POST). Los datos de la primera solicitud no viajan automáticamente a la segunda.
+        </li>
+    </ul>
+
+</body>
+</html>
