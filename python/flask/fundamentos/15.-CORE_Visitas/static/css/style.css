@@ -1,0 +1,156 @@
+/* ==========================================================
+   PANEL DE CONTROL DE VISITAS - CONFIGURACIÓN DE ESTILOS
+   ========================================================== */
+
+:root {
+    --brand-primary: #6f42c1;
+    --brand-accent: #20c997;
+    --brand-warning: #fd7e14;
+    --brand-danger: #e63946;
+    --bg-gradient-start: #f3f0ff;
+    --bg-gradient-end: #e9ecef;
+    --text-dark: #1a1d20;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(120deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+/* TARJETA CONTENEDORA */
+.main-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+.card-panel {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 35px rgba(111, 66, 193, 0.08);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* ÍCONO CABECERA */
+.panel-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 18px;
+    background: #f1edfb;
+    color: var(--brand-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.main-title {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* CIRCULO DEL CONTADOR */
+.counter-badge {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 12px 28px rgba(111, 66, 193, 0.25);
+}
+
+.counter-badge span {
+    font-size: 58px;
+    font-weight: 700;
+}
+
+.visit-status {
+    font-size: 1.05rem;
+    color: #343a40;
+}
+
+/* ACCIONES Y BOTONES */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.15s ease;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+/* FORMULARIO */
+.custom-input-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+/* INFORMACIÓN RESUMEN */
+.reset-tracker {
+    margin-top: 20px;
+    padding: 12px;
+    background: #fff4e6;
+    border-radius: 8px;
+    color: #d9480f;
+    font-size: 0.9rem;
+}
+
+.purge-section {
+    margin-top: 25px;
+}
+
+/* DISEÑO ADAPTATIVO */
+@media (max-width: 576px) {
+    .card-panel {
+        padding: 25px 15px;
+    }
+
+    .counter-badge {
+        width: 130px;
+        height: 130px;
+    }
+
+    .counter-badge span {
+        font-size: 42px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+}
