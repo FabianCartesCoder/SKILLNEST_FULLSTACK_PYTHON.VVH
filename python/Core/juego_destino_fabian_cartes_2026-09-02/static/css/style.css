@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    color: #4a154b;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button, .btn-volver {
+    display: inline-block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #6b11ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+button:hover, .btn-volver:hover {
+    background-color: #520dc2;
+}
+
+.saludo {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.prediccion-box {
+    background: #f0e6ff;
+    border-left: 5px solid #6b11ff;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: #2d006b;
+}

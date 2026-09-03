@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Destino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>🔮 Descubre tu Destino</h1>
+        <form action="/enviar" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+                <label for="lugar">Lugar preferido:</label>
+                <input type="text" id="lugar" name="lugar" required placeholder="Ej. París, La playa">
+            </div>
+            <div class="form-group">
+                <label for="numero">Número de la suerte (1-100):</label>
+                <input type="number" id="numero" name="numero" min="1" max="100" required>
+            </div>
+            <button type="submit">Revelar mi futuro</button>
+        </form>
+    </div>
+</body>
+</html>

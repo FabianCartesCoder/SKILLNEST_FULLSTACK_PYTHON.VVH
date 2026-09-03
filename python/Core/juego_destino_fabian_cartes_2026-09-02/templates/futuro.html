@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Destino Revelado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>✨ Tu Predicción ✨</h1>
+        <p class="saludo">Hola <strong>{{ nombre }}</strong>,</p>
+        <p>Hemos consultado a los astros basándonos en tu lugar favorito (<strong>{{ lugar }}</strong>) y tu número de la suerte (<strong>{{ numero }}</strong>):</p>
+        
+        <div class="prediccion-box">
+            <p>{{ destino }}</p>
+        </div>
+
+        <a href="/" class="btn-volver">Intentar de nuevo</a>
+    </div>
+</body>
+</html>
