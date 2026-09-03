@@ -4,19 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu Destino Revelado</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .color-preview-box {
+            background-color: {{ color }};
+        }
+    </style>
 </head>
 <body>
     <div class="card">
-        <h1>✨ Tu Predicción ✨</h1>
-        <p class="saludo">Hola <strong>{{ nombre }}</strong>,</p>
-        <p>Hemos consultado a los astros basándonos en tu lugar favorito (<strong>{{ lugar }}</strong>) y tu número de la suerte (<strong>{{ numero }}</strong>):</p>
-        
-        <div class="prediccion-box">
-            <p>{{ destino }}</p>
+        <div class="card-header">
+            <div class="icon-circle sun-icon">⚙️</div>
+            <h1>Tu Destino ha sido Revelado</h1>
+            <p class="subtitle">Las estrellas han hablado, {{ nombre }}</p>
         </div>
+        
+        <div class="card-body">
+            <div class="alert-box">
+                <div class="star-badge">★</div>
+                <p>{{ prediccion }}</p>
+            </div>
 
-        <a href="/" class="btn-volver">Intentar de nuevo</a>
+            <div class="grid-two-columns">
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-palette"></i> Tu Color</h3>
+                    <div class="color-preview color-preview-box"></div>
+                    <p>Tu preferencia por el color <strong>{{ color }}</strong> revela tu afinidad con la <strong>{{ afinidad_color }}</strong></p>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fa-solid fa-paw"></i> Tu Animal</h3>
+                    <p>Tu conexión con el <strong>{{ animal }}</strong> simboliza tu naturaleza de <strong>{{ simbolo_animal }}</strong></p>
+                </div>
+            </div>
+
+            <div class="luck-section">
+                <h3>Tu número de la suerte</h3>
+                <div class="luck-number">{{ numero }}</div>
+                <p class="luck-subtext">Este número te acompañará en momentos importantes.</p>
+            </div>
+
+            <div class="age-banner">
+                <p>A tus <strong>{{ edad }} años</strong>, estás en un momento favorable para aprovechar nuevas oportunidades.</p>
+            </div>
+
+            <a href="/" class="btn-main btn-restart">
+                🔄 Consultar de nuevo
+            </a>
+
+            <p class="footer-text">Las estrellas te han hablado hoy; {{ nombre }}.</p>
+        </div>
     </div>
 </body>
 </html>
