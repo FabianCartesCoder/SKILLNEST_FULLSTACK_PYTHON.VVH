@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+</head>
+<body>
+
+    {% if tipo_seleccionado %}
+        <h1>Mascotas de tipo: {{ tipo_seleccionado }}</h1>
+    {% else %}
+        <h1>Listado de Mascotas</h1>
+    {% endif %}
+
+    {% if mascotas %}
+        <ul>
+            {% for mascota in mascotas %}
+                <li>
+                    <strong>{{ mascota.nombre }}</strong> - {{ mascota.tipo }} - {{ mascota.color }}
+                    
+                    <a href="{{ url_for('mostrar_mascota', id=mascota.id) }}">
+                        Ver detalles
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron mascotas registradas.</p>
+    {% endif %}
+
+    {% if tipo_seleccionado %}
+        <p><a href="{{ url_for('index') }}">Ver todas las mascotas</a></p>
+    {% endif %}
+
+</body>
+</html>
