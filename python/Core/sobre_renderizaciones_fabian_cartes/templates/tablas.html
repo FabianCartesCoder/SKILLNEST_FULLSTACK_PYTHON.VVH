@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Aplicaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        {% if lista_apps %}
+            <table class="tabla-apps">
+                <thead>
+                    <tr>
+                        <th>Nombre </th>
+                        <th>Usuarios</th>
+                        <th>Año Fundación</th>
+                        <th>País</th>
+                        <th>Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for app in lista_apps %}
+                        <tr>
+                            <td>
+                                <strong>{{ app.nombre }}</strong>
+                            </td>
+                            <td>
+                                <span class="badge badge-blue">{{ app.usr_list }}</span>
+                            </td>
+                            <td>{{ app.fundacion }}</td>
+                            <td>
+                                <span class="badge badge-gray">{{ app.pais }}</span>
+                            </td>
+                            <td>
+                                <button class="btn-info">i</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="empty-msg">No hay aplicaciones disponibles para mostrar.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
