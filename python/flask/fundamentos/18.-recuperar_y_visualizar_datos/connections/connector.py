@@ -1,0 +1,67 @@
+import pymysql.cursors
+
+class MySQLConnection:
+    """
+    Administra una conexión con una base de info MySQL.
+    """
+
+    def __init__(self, db):
+        """
+        Recibe el nombre de la base de info y establece
+        la conexión con el servidor MySQL.
+        """
+
+        self.connection = pymysql.connect(
+            host="localhost",
+            user="root",
+            password="12123",
+            database='primera_flask',
+            charset="utf8mb4",
+            cursorclass=pymysql.cursors.DictCursor,
+            autocommit=True
+        )
+
+    def query_db(self, query, data=None):
+        """
+        Ejecuta una query SQL.
+
+        Para SELECT:
+            devuelve una lista de diccionarios.
+
+        Para INSERT:
+            devuelve el ID generado.
+
+        Para UPDATE / DELETE:
+            devuelve None.
+
+        Si ocurre un error:
+            devuelve False.
+        """
+        with self.connection.cursor() as cursor:
+            try:
+                cursor.execute(query, data)
+
+                if query.strip().lower().startswith("select"):
+                    resultados = cursor.fetchall()
+                    return resultados
+
+                elif query.strip().lower().startswith("insert"):
+
+                    return cursor.lastrowid
+
+                else:
+                    return None
+            except Exception as e:
+
+                print("Something went wrong:")
+                print(e)
+                return False
+            finally:
+                self.connection.close()
+
+def connectToMySQL(db):
+    """
+    Recibe el nombre de una base de info y devuelve
+    una instancia de MySQLConnection.
+    """
+    return MySQLConnection(db)
